@@ -1,0 +1,59 @@
+---
+title: Library Management System
+---
+classDiagram
+    class Livre {
+        +String ISBN
+        +String titre
+        +Array auteurs
+        +String datePublication
+        +Boolean disponibilite
+        +ajouterAuteur(auteur)
+        +modifierDisponibilite(disponible)
+    }
+
+    class Auteur {
+        +String nom
+        +String prenom
+        +String nationalite
+        +Array livres
+        +ajouterLivre(livre)
+    }
+
+    class Lecteur {
+        +String numeroCarte
+        +String nom
+        +String prenom
+        +String adresse
+        +Array emprunts
+        +ajouterEmprunt(emprunt)
+        +retournerEmprunt(emprunt)
+    }
+
+    class Emprunt {
+        +Date dateDebut
+        +Date dateRetourPrevue
+        +Date dateRetourReel
+        +Livre livre
+        +Lecteur lecteur
+        +prolongerEmprunt(nouvelleDate)
+        +enregistrerRetour()
+    }
+
+    class Bibliotheque {
+        +Array livres
+        +Array lecteurs
+        +Array emprunts
+        +ajouterLivre(livre)
+        +supprimerLivre(ISBN)
+        +rechercherLivre(titre, auteur, ISBN)
+        +enregistrerEmprunt(livre, lecteur)
+        +retournerLivre(livre, lecteur)
+    }
+
+    Bibliotheque --> Livre : contient
+    Bibliotheque --> Lecteur : gère
+    Bibliotheque --> Emprunt : gère
+    Lecteur --> Emprunt : fait
+    Livre --> Auteur : écrit par
+    Auteur --> Livre : écrit
