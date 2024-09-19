@@ -1,4 +1,6 @@
 <?php
+          //! App Console en PHP
+
 echo "Enter le premier number : ";
 $number1 = intval(fgets(STDIN));
 
