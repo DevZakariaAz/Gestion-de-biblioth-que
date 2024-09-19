@@ -1,59 +1,39 @@
----
-title: Library Management System
----
 classDiagram
-    class Livre {
-        +String ISBN
-        +String titre
-        +Array auteurs
-        +String datePublication
-        +Boolean disponibilite
-        +ajouterAuteur(auteur)
-        +modifierDisponibilite(disponible)
-    }
-
-    class Auteur {
-        +String nom
-        +String prenom
-        +String nationalite
-        +Array livres
-        +ajouterLivre(livre)
-    }
-
-    class Lecteur {
-        +String numeroCarte
-        +String nom
-        +String prenom
-        +String adresse
-        +Array emprunts
-        +ajouterEmprunt(emprunt)
-        +retournerEmprunt(emprunt)
-    }
-
+  class Livre {
+    +int id
+    +String ISBN
+    +String titre
+    +Array auteurs
+    +Date datePublication
+  }
     class Emprunt {
-        +Date dateDebut
-        +Date dateRetourPrevue
-        +Date dateRetourReel
-        +Livre livre
-        +Lecteur lecteur
-        +prolongerEmprunt(nouvelleDate)
-        +enregistrerRetour()
-    }
+    +int id
+    +Date dateDébut
+    +Date dateRetourPrévue
+    +Date dateRetourRéelle
+  }
 
-    class Bibliotheque {
-        +Array livres
-        +Array lecteurs
-        +Array emprunts
-        +ajouterLivre(livre)
-        +supprimerLivre(ISBN)
-        +rechercherLivre(titre, auteur, ISBN)
-        +enregistrerEmprunt(livre, lecteur)
-        +retournerLivre(livre, lecteur)
-    }
+  class Auteur {
+    +int id
+    +String nom
+    +String prénom
+    +String nationalité
+    +Array listeLivres
+  }
 
-    Bibliotheque --> Livre : contient
-    Bibliotheque --> Lecteur : gère
-    Bibliotheque --> Emprunt : gère
-    Lecteur --> Emprunt : fait
-    Livre --> Auteur : écrit par
-    Auteur --> Livre : écrit
+  class Lecteur {
+    +int id
+    +String numéroCarte
+    +String nom
+    +String prénom
+    +String adresse
+    +Array emprunts
+  }
+
+
+
+  %% Relations
+ 
+  Lecteur "1" -- "*" Emprunt : 
+  Livre "1" -- "*" Emprunt : 
+  Auteur "1" -- "*" Livre : écrit 
