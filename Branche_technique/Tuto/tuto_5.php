@@ -1,6 +1,6 @@
-<?php 
-
-class Animal {
+<?php
+                //! Le polymorphisme en PHP
+           class Animal {
     public function faireDuBruit() {
         echo "L'animal fait du bruit.";
     }

@@ -1,4 +1,6 @@
 <?php 
+            //! Exemple : Héritage en PHP  : 
+
 class Animal {
     public $nom ;
     public $age ;
