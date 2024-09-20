@@ -2,7 +2,7 @@
 left to right direction
 actor Admin
 actor Reader
-rectangle library_management {
+rectangle library{
 usecase "Manage Books" as UC_ManageBook
 usecase "View Available Books" as UC_ViewAvailableBooks
 usecase "Advanced Search" as UC_AdvancedSearch
@@ -12,7 +12,7 @@ usecase "Borrow a Book" as UC_BorrowBook
 usecase "Manage Authors" as UC_ManageAuthors
 usecase "Manage Readers" as UC_ManageReaders
 }
-UC_SearchBook <.. UC_ViewAvailableBooks : <<extend>>
+UC_ViewAvailableBooks  <.. UC_SearchBook : <<extend>>
 UC_ManageBook <.. UC_AdvancedSearch : <<extend>>
 UC_ManageBook <.. UC_DisplayBooksConsole : <<extend>>
 UC_ManageBook <.. UC_BorrowBook: <<extend>>
