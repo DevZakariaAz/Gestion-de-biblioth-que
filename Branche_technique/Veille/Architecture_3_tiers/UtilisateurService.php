@@ -3,11 +3,11 @@
 require_once 'UtilisateurDAO.php';
 
 class UtilisateurService extends UtilisateurDAO {
-    private $utilisateurDAO;
+    // private $utilisateurDAO;
 
-    public function __construct() {
-        $this->utilisateurDAO = new UtilisateurDAO();
-    }
+    // public function __construct() {
+    //     $this->utilisateurDAO = new UtilisateurDAO();
+    // }
 
 }
 ?>
