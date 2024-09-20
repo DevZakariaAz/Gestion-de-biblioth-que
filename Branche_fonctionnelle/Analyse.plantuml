@@ -1,16 +1,17 @@
 @startuml
-
+left to right direction
 actor Admin
 actor Reader
+rectangle library_management {
 usecase "Manage Books" as UC_ManageBook
 usecase "View Available Books" as UC_ViewAvailableBooks
-usecase "Search a Book" as UC_SearchBook
 usecase "Advanced Search" as UC_AdvancedSearch
+usecase "Search a Book" as UC_SearchBook
 usecase "Display Available Books in Console" as UC_DisplayBooksConsole
 usecase "Borrow a Book" as UC_BorrowBook
 usecase "Manage Authors" as UC_ManageAuthors
 usecase "Manage Readers" as UC_ManageReaders
-
+}
 UC_SearchBook <.. UC_ViewAvailableBooks : <<extend>>
 UC_ManageBook <.. UC_AdvancedSearch : <<extend>>
 UC_ManageBook <.. UC_DisplayBooksConsole : <<extend>>
