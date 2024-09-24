@@ -15,5 +15,4 @@ class BookDAO
     $dataBase->Books[] = $book;
     $dataBase->saveData();
   }
-  
 }
