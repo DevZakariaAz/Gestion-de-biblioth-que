@@ -1,6 +1,6 @@
 <?php
 
-class Database
+ class Database
 {
   public $Books = [];
   private $file_path = "../DB/DataBase.txt";
