@@ -38,7 +38,7 @@
 #### Dans le cadre de notre projet, nous avons mis en place un tableau de gestion pour organiser les différentes tâches à réaliser. Ce tableau, structuré par jour de la semaine, a permis de suivre l'avancement des activités de manière efficace. ce qui facilite la priorisation et la répartition des efforts tout au long du projet. Cette approche méthodique a été cruciale pour garantir le respect des délais et la bonne exécution des différentes étapes du projet.
 **Tableau de Gestion des tâches :**
 | Jour      | Tâche 1       | Tâche 2       | Tâche 3                       |
-| --------- | ------------- | ------------- | ----------------------------- |
+| --------- | ------------- | ------------- | ----------------------------- | 
 | Vendredi  | ---           | OOP           | OOP                           |
 | Mercredi  | Autoformation | Veille        | Autoformation                 |
 | Jeudi     | Autoformation | Veille        | Analyse/Conception            |
