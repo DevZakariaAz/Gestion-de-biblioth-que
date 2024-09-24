@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+
+actor Admin as fc
+rectangle library{
+usecase "Display books" as UC1
+usecase "Add books" as UC2
+}
+fc -- UC1  
+fc -- UC2 
+
+@enduml
