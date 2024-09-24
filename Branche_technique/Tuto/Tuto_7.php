@@ -1,82 +1,31 @@
 <?php
-            //! Sérialisation  En PHP : 
-            
-class Book
-{
-  public $titre;
-  public $isbn;
-  /** @var Author[] */
-  public $authors;
 
-  // Add a constructor for easy initialization
-  public function __construct($titre = "", $isbn = "", $authors = [])
+            //!   Sérialisation En PHP
+
+class MyClass
+{
+  private $name;
+  private $age;
+  private $book = [];
+
+  public function __construct($name, $age, $book)
   {
-    $this->titre = $titre;
-    $this->isbn = $isbn;
-    $this->authors = $authors;
+    $this->name = $name;
+    $this->age = $age;
+    $this->book = $book;
   }
-}
 
-class Author
-{
-  public $last_name;
-  public $first_name;
-
-  // Add a constructor for easy initialization
-  public function __construct($last_name = "", $first_name = "")
+  public function getInfo()
   {
-    $this->last_name = $last_name;
-    $this->first_name = $first_name;
+    return "Name: " . $this->name . ", Age: " . $this->age .",Books:". $this->book;
   }
 }
 
-$book1 = new Book();
-$book1->titre = "Le Petit Prince";
-$book1->isbn = "9782266000016";
-$book1->authors = [
-  new Author("Saint-Exupéry", "Antoine de")
-];
+// Read the serialized object from the file
+$serializedObject = file_get_contents('serialisation.txt');
 
-// Saving an object in a JSON file
-function saveBookInAFile(Book $book, string $file)
-{
-  $json = json_encode($book, JSON_PRETTY_PRINT);
-  file_put_contents($file, $json);
-}
+// Unserialize the object to restore it
+$object = unserialize($serializedObject);
 
-// Reading an object from a JSON file
-function readBookFromAFile(string $file): Book
-{
-  $json = file_get_contents($file);
-  $data = json_decode($json);
-
-  // Create Book instance
-  $book = new Book();
-  $book->titre = $data->titre ?? "";
-  $book->isbn = $data->isbn ?? "";
-
-  // Create Author instances
-  $book->authors = [];
-  if (isset($data->authors)) {
-    foreach ($data->authors as $authorData) {
-      $author = new Author();
-      $author->last_name = $authorData->last_name ?? "";
-      $author->first_name = $authorData->first_name ?? "";
-      $book->authors[] = $author;
-    }
-  }
-
-  return $book;
-}
-
-// Save the book to a file
-saveBookInAFile($book1, "tuto_7.json");
-
-// Read the book from the file and print details
-$book = readBookFromAFile("tuto_7.json");
-echo "Title: " . $book->titre . "\n";
-echo "ISBN: " . $book->isbn . "\n";
-echo "Authors:\n";
-foreach ($book->authors as $author) {
-  echo "- " . $author->first_name . " " . $author->last_name . "\n";
-}
+// Access the object's methods or properties
+echo $object->getInfo();  // Output: Name: John, Age: 25
