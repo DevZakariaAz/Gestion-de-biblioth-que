@@ -37,15 +37,21 @@
 ### 5- Planification : 
 #### Dans le cadre de notre projet, nous avons mis en place un tableau de gestion pour organiser les différentes tâches à réaliser. Ce tableau, structuré par jour de la semaine, a permis de suivre l'avancement des activités de manière efficace. ce qui facilite la priorisation et la répartition des efforts tout au long du projet. Cette approche méthodique a été cruciale pour garantir le respect des délais et la bonne exécution des différentes étapes du projet.
 **Tableau de Gestion des tâches :**
-
 | Jour      | Tâche 1       | Tâche 2       | Tâche 3                       |
-| -------   | ------------  | ------------- | ------------- -------------   |
-| Vendredi  |       ---     | OOP           | OOP                           |
+| --------- | ------------- | ------------- | ----------------------------- |
+| Vendredi  | ---           | OOP           | OOP                           |
 | Mercredi  | Autoformation | Veille        | Autoformation                 |
 | Jeudi     | Autoformation | Veille        | Analyse/Conception            |
 | Vendredi  | Autoformation | Prototype     | logo/groupe name/veille list  |
 | Lundi     | Prototype     | Prototype     | Prototype                     |
 | Mardi     | Deployment    | Deployment    | Deployment                    |
 | Lundi     | Réalisation   | Réalisation   | Réalisation                   |
-| Lundi     | Réalisation   | Réalisation   | Réalisation                   |
-| Lundi     | Réalisation   | Réalisation   | Réalisation                   |
+| Mardi     | Réalisation   | Réalisation   | Réalisation                   |
+| Mercredi  | Réalisation   | Réalisation   | Réalisation                   |
+
+---
+
+### 5- Branche fonctionnelle : 
+#### Ce chapitre se concentre sur la branche fonctionnelle, essentielle dans le développement logiciel, où l'analyse des besoins et les cas d'utilisation jouent un rôle clé. L'objectif est de comprendre comment un système doit fonctionner pour répondre aux attentes des utilisateurs. En identifiant les acteurs, leurs objectifs et les interactions avec le système, nous pouvons définir clairement les fonctionnalités nécessaires. Cette approche permet de s'assurer que le produit final est en adéquation avec les besoins réels des utilisateurs, constituant ainsi une étape fondamentale dans le processus de développement.
+**Cas d'utilisation :**
+![cas d'utilisation](Cas_utilisation.png)
