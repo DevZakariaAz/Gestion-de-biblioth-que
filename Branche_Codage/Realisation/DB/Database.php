@@ -3,6 +3,9 @@
  class Database
 {
   public $Books = [];
+  public $Authors = [];
+  public $Readers = [];
+  public $Borrowings = [];
   private $file_path = "../DB/DataBase.txt";
 
   public function __construct()
@@ -16,6 +19,10 @@
       $content = file_get_contents($this->file_path);
       $Data = unserialize($content);
       $this->Books = $Data->Books;
+      $this->Authors = $Data->Authors;
+      $this->Readers = $Data->Readers;
+      $this->Borrowings = $Data->Borrowings;
+      
     }
   }
 
