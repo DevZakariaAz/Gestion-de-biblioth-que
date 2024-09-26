@@ -9,57 +9,21 @@ class Author
 
   public function __construct($lastName, $firstName, $nationality)
   {
-    $this->id = time();  // Generate a unique ID based on the timestamp
+    $this->id = time();  
     $this->lastName = $lastName;
     $this->firstName = $firstName;
     $this->nationality = $nationality;
   }
+    //* Getters and Setters for ID, lastName, nationality, And firstNamen
 
-  // Getter for ID
-  public function getId()
-  {
-    return $this->id;
-  }
+  public function getId() { return $this->id; }
 
-  // Setter for ID
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
+  public function getlastName() { return $this->lastName; }
+  public function setlastName($lastName) { $this->lastName = $lastName; }
 
-  // Getter for Last Name
-  public function getLastName()
-  {
-    return $this->lastName;
-  }
+  public function getfirstName() { return $this->firstName; }
+  public function setfirstName($firstName) { $this->firstName = $firstName; }
 
-  // Setter for Last Name
-  public function setLastName($lastName)
-  {
-    $this->lastName = $lastName;
-  }
-
-  // Getter for First Name
-  public function getFirstName()
-  {
-    return $this->firstName;
-  }
-
-  // Setter for First Name
-  public function setFirstName($firstName)
-  {
-    $this->firstName = $firstName;
-  }
-
-  // Getter for Nationality
-  public function getNationality()
-  {
-    return $this->nationality;
-  }
-
-  // Setter for Nationality
-  public function setNationality($nationality)
-  {
-    $this->nationality = $nationality;
-  }
+  public function getnationality() { return $this->nationality; }
+  public function setnationality($nationality) { $this->nationality = $nationality; }
 }

@@ -19,7 +19,6 @@ class Book
   
   //* Getters and Setters for ID, ISBN, Title, Author, And Publish Date
   public function getId() { return $this->id; }
-  public function setId($id) { $this->id = $id; }
 
   public function getISBN() { return $this->ISBN; }
   public function setISBN($ISBN) { $this->ISBN = $ISBN; }

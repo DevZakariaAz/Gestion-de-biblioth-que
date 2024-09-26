@@ -1,5 +1,5 @@
 <?php
-require("../DB/DataBase.php");
+require_once("../DB/Database.php");
 
 class BookDAO
 {
