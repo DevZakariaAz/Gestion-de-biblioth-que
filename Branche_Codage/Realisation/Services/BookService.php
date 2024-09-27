@@ -8,7 +8,6 @@ class BookService
     $dataBase = new BookDAO();
     return $dataBase->getBooks();
   }
-
   public function setBook($book)
   {
     $bookDAO = new BookDAO();

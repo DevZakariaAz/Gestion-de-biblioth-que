@@ -8,7 +8,7 @@ class BookDAO
     $dataBase = new DataBase();
     return $dataBase->Books;
   }
-
+  
   public function setBook($book)
   {
     $dataBase = new DataBase();
@@ -16,7 +16,6 @@ class BookDAO
     $dataBase->saveData();
   }
 
-  
   public function deleteBook($id)
   {
     $dataBase = new DataBase();

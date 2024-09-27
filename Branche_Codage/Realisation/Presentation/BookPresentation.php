@@ -53,6 +53,7 @@ class BookPresentation
     $bookService->setBook($new_book);
     echo "Book added successfully\n\n";
   }
+
   public function deleteBook()
   {
     echo "\nDeleting a Book\n";
@@ -64,4 +65,5 @@ class BookPresentation
     $bookService = new BookService;
     $bookService->deleteBook($id);
   }
+  
 }
