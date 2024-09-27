@@ -1,66 +1,39 @@
 <?php
-                                    //!  maxii shih //i\\
-//!                                 \\!                //                
-// class Borrowing
-// {
-//   private $id;
-//   private $startDate;
-//   private $expectedReturnDate;
-//   private $actualReturnDate;
 
-//   public function __construct($startDate, $expectedReturnDate)
-//   {
-//     $this->id = time();  // Generate a unique ID based on the timestamp
-//     $this->startDate = $startDate;
-//     $this->expectedReturnDate = $expectedReturnDate;
-//     $this->actualReturnDate = null; // Initially set to null
-//   }
+class Borrowing
+{
+  private $id;
+  private $start_date;
+  private $expected_return_date;
+  private $actual_return_date;
+  private $book;
+  private $reader;
 
-//   // Getter for ID
-//   public function getId()
-//   {
-//     return $this->id;
-//   }
+  public function __construct($start_date, $expected_return_date, $actual_return_date, $Book, $reader)
+  {
+    $this->id = time();
+    $this->start_date = $start_date;
+    $this->expected_return_date = $expected_return_date;
+    $this->actual_return_date = $actual_return_date;
+    $this->book = $Book;
+    $this->reader = $reader;
+  }
 
-//   // Setter for ID
-//   public function setId($id)
-//   {
-//     $this->id = $id;
-//   }
+  public function getId(){ return $this->id; }
+   
+  public function getStart_date()  { return $this->start_date; }
+  public function setStart_date($start_date)  { $this->start_date = $start_date; }
 
-//   // Getter for Start Date
-//   public function getStartDate()
-//   {
-//     return $this->startDate;
-//   }
+  public function getExpected_return_date(){ return $this->expected_return_date; }
+  public function setExpected_return_date($expected_return_date){ $this->expected_return_date = $expected_return_date; }
 
-//   // Setter for Start Date
-//   public function setStartDate($startDate)
-//   {
-//     $this->startDate = $startDate;
-//   }
+  public function getActual_return_date() {return $this->actual_return_date; }
+  public function setActual_return_date($actual_return_date) { $this->actual_return_date = $actual_return_date; }
 
-//   // Getter for Expected Return Date
-//   public function getExpectedReturnDate()
-//   {
-//     return $this->expectedReturnDate;
-//   }
+  public function getBook(){ return $this->book; }
+  public function setBook($book)  { $this->book = $book; }
 
-//   // Setter for Expected Return Date
-//   public function setExpectedReturnDate($expectedReturnDate)
-//   {
-//     $this->expectedReturnDate = $expectedReturnDate;
-//   }
+  public function getReader() { return $this->reader; }
+  public function setReader($reader)  { $this->reader = $reader; }
 
-//   // Getter for Actual Return Date
-//   public function getActualReturnDate()
-//   {
-//     return $this->actualReturnDate;
-//   }
-
-//   // Setter for Actual Return Date
-//   public function setActualReturnDate($actualReturnDate)
-//   {
-//     $this->actualReturnDate = $actualReturnDate;
-//   }
-// }
+}
