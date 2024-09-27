@@ -14,4 +14,9 @@ class BookService
     $bookDAO = new BookDAO();
     $bookDAO->setBook($book);
   }
+   public function deleteBook($id)
+  {
+    $bookDAO = new BookDAO();
+    $bookDAO->deleteBook($id);
+  }
 }

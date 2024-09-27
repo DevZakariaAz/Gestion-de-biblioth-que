@@ -53,4 +53,15 @@ class BookPresentation
     $bookService->setBook($new_book);
     echo "Book added successfully\n\n";
   }
+  public function deleteBook()
+  {
+    echo "\nDeleting a Book\n";
+    $id = askQuestion("Enter the ID of the book (or type 'back' to go back): ");
+    if (strtolower($id) === "back") {
+      return;
+    }
+
+    $bookService = new BookService;
+    $bookService->deleteBook($id);
+  }
 }
