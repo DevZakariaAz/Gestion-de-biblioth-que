@@ -1,13 +1,188 @@
 <?php
 require("./BookPresentation.php");
-require("./AuthorPresentation.php");
 require("./ReaderPresentation.php");
+require("./AuthorPresentation.php");
+require("./BorrPresentation.php");
 
 function askQuestion($question)
 {
   echo $question;
   return trim(fgets(STDIN));
 }
+
+function book_management()
+{
+  $exitProgram = false;
+  while (!$exitProgram) {
+    echo "+------------------------------------+\n";
+    echo "|        Books Management            |\n";
+    echo "|------------------------------------|\n";
+    echo "|     Please choose an action:       |\n";
+    echo "|------------------------------------|\n";
+    echo "| [v] - View the Books               |\n";
+    echo "| [a] - Add a new Book               |\n";
+    echo "| [d] - Delete a Book                |\n";
+    echo "| [b] - Borrowings a Book            |\n";
+    echo "| [back] - back to main menu         |\n";
+    echo "+------------------------------------+\n";
+    $action = askQuestion("Your choice: ");
+    echo "--------------------------------------\n";
+
+    $bookPresentation = new BookPresentation();
+    switch (strtolower($action)) {
+      case 'v':
+        $bookPresentation->viewBooks();
+        break;
+
+      case 'a':
+        $bookPresentation->addBook();
+        break;
+
+      case 'd':
+        $bookPresentation->deleteBook();
+        break;
+
+      case 'b':
+        borrowing_management();
+        break;
+
+      case 'back':
+        $exitProgram = true;
+        break;
+
+      default:
+        echo "\nInvalid choice. Please try again.\n\n";
+        break;
+    }
+  }
+}
+
+function author_management()
+{
+  $exitProgram = false;
+  while (!$exitProgram) {
+    echo "+------------------------------------+\n";
+    echo "|        Authors Management          |\n";
+    echo "|------------------------------------|\n";
+    echo "|     Please choose an action:       |\n";
+    echo "|------------------------------------|\n";
+    echo "| [v] - View the Authors             |\n";
+    echo "| [a] - Add a new Authors            |\n";
+    echo "| [d] - Deleting a Authors           |\n";
+    echo "| [back] - back to main menu         |\n";
+    echo "+------------------------------------+\n";
+    $action = askQuestion("Your choice: ");
+    echo "--------------------------------------\n";
+
+    $authorPresentation = new AuthorPresentation();
+    switch (strtolower($action)) {
+      case 'v':
+        $authorPresentation->viewAuthors();
+        break;
+
+      case 'a':
+        $authorPresentation->addAuthor();
+        break;
+
+      case 'd':
+        $authorPresentation->deleteAuthor();
+        break;
+
+      case 'back':
+        $exitProgram = true;
+        break;
+
+      default:
+        echo "\nInvalid choice. Please try again.\n\n";
+        break;
+    }
+  }
+}
+
+function reader_management()
+{
+  $exitProgram = false;
+  while (!$exitProgram) {
+    echo "+------------------------------------+\n";
+    echo "|        Readers Management          |\n";
+    echo "|------------------------------------|\n";
+    echo "|     Please choose an action:       |\n";
+    echo "|------------------------------------|\n";
+    echo "| [v] - View the Readers             |\n";
+    echo "| [a] - Add a new Readers            |\n";
+    echo "| [d] - Delete a Readers             |\n";
+    echo "| [back] - back to main menu         |\n";
+    echo "+------------------------------------+\n";
+    $action = askQuestion("Your choice: ");
+    echo "--------------------------------------\n";
+
+    $readerPresentation = new ReaderPresentation();
+    switch (strtolower($action)) {
+      case 'v':
+        $readerPresentation->viewReaders();
+        break;
+
+      case 'a':
+        $readerPresentation->addReader();
+        break;
+
+      case 'd':
+        $readerPresentation->deleteReader();
+        break;
+
+      case 'back':
+        $exitProgram = true;
+        break;
+
+      default:
+        echo "\nInvalid choice. Please try again.\n\n";
+        break;
+    }
+  }
+}
+
+function borrowing_management()
+{
+  $exitProgram = false;
+  while (!$exitProgram) {
+    echo "+------------------------------------+\n";
+    echo "|        Borrowings Management       |\n";
+    echo "|------------------------------------|\n";
+    echo "|       Please choose an action:     |\n";
+    echo "|------------------------------------|\n";
+    echo "| [v] - View the Borrowings          |\n";
+    echo "| [a] - Add a new Borrowings         |\n";
+    echo "| [d] - Delete a Borrowings          |\n";
+    echo "| [back] - back to main menu         |\n";
+    echo "+------------------------------------+\n";
+    $action = askQuestion("Your choice: ");
+    echo "--------------------------------------\n";
+
+    $borrowingPresentation = new BorrowingPresentation();
+    switch (strtolower($action)) {
+      case 'v':
+        $borrowingPresentation->viewBorrowings();
+        break;
+
+      case 'a':
+        $borrowingPresentation->addBorrowing();
+        break;
+
+      case 'd':
+        $borrowingPresentation->deleteBorrowing();
+        break;
+
+      case 'back':
+        $exitProgram = true;
+        break;
+
+      default:
+        echo "\nInvalid choice. Please try again.\n\n";
+        break;
+    }
+  }
+}
+
 function library_management()
 {
   echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J';
@@ -51,131 +226,4 @@ function library_management()
   echo "\nExiting the program. Goodbye!\n";
 }
 
-function book_management()
-{
-  echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J';
-  echo "Welcome to the Books List Manager\n\n";
-
-  $exitProgram = false;
-  while (!$exitProgram) {
-    echo "+------------------------------------+\n";
-    echo "|        Books Management            |\n";
-    echo "|------------------------------------|\n";
-    echo "|    Please choose an action:        |\n";
-    echo "|------------------------------------| \n";
-    echo "| [v] - View the Books               |\n";
-    echo "| [a] - Add a new Book               |\n";
-    echo "| [d] - Delete a Book                |\n";
-    echo "| [exit] - Exit the program          |\n";
-    echo "+------------------------------------+\n\n";
-
-    $action = askQuestion("Your choice: ");
-    switch (strtolower($action)) {
-      case 'v':
-        $bookPresentation = new BookPresentation();
-        $bookPresentation->viewBooks();
-        break;
-
-      case 'a':
-        $bookPresentation = new BookPresentation();
-        $bookPresentation->addBook();
-        break;
-        
-      case 'd':
-        $bookPresentation->deleteBook();
-        break;
-
-      case 'exit':
-        $exitProgram = true;
-        break;
-
-      default:
-        echo "Invalid choice. Please try again.\n";
-        break;
-    }
-  }
-  echo "Exiting the program. Goodbye!\n";
-}
-
-function author_management()
-{
-  echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J';
-  echo "Welcome to the Authors List Manager\n\n";
-
-  $exitProgram = false;
-  while (!$exitProgram) {
-    echo "+------------------------------------+\n";
-    echo "|        Authors Management          |\n";
-    echo "|------------------------------------|\n";
-    echo "|    Please choose an action:        |\n";
-    echo "|------------------------------------| \n";
-    echo "| [v] - View the Authors             |\n";
-    echo "| [a] - Add a new Author             |\n";
-    echo "| [exit] - Exit the program          |\n";
-    echo "+------------------------------------+\n\n";
-
-    $action = askQuestion("Your choice: ");
-    switch (strtolower($action)) {
-      case 'v':
-        $authorPresentation = new AuthorPresentation();
-        $authorPresentation->viewAuthors();
-        break;
-
-      case 'a':
-        $authorPresentation = new AuthorPresentation();
-        $authorPresentation->addAuthor();
-        break;
-
-      case 'exit':
-        $exitProgram = true;
-        break;
-
-      default:
-        echo "Invalid choice. Please try again.\n";
-        break;
-    }
-  }
-  echo "Exiting the program. Goodbye!\n";
-}
-
-function reader_management()
-{
-  echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J';
-  echo "Welcome to the Readers List Manager\n\n";
-
-  $exitProgram = false;
-  while (!$exitProgram) {
-    echo "+------------------------------------+\n";
-    echo "|        Readers Management          |\n";
-    echo "|------------------------------------|\n";
-    echo "|    Please choose an action:        |\n";
-    echo "|------------------------------------| \n";
-    echo "| [v] - View the Readers             |\n";
-    echo "| [a] - Add a new Reader             |\n";
-    echo "| [exit] - Exit the program          |\n";
-    echo "+------------------------------------+\n\n";
-
-    $action = askQuestion("Your choice: ");
-    switch (strtolower($action)) {
-      case 'v':
-        $readerPresentation = new ReaderPresentation();
-        $readerPresentation->viewReaders();
-        break;
-
-      case 'a':
-        $readerPresentation = new ReaderPresentation();
-        $readerPresentation->addReader();
-        break;
-
-      case 'exit':
-        $exitProgram = true;
-        break;
-
-      default:
-        echo "Invalid choice. Please try again.\n";
-        break;
-    }
-  }
-  echo "Exiting the program. Goodbye!\n";
-}
 library_management();

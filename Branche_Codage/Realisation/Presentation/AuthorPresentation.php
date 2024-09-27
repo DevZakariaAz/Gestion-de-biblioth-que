@@ -47,4 +47,15 @@ class AuthorPresentation
     $authorService->setAuthor($new_author);
     echo "Author added successfully\n\n";
   }
+  public function deleteAuthor()
+  {
+    echo "\nDeleting a Author\n";
+    $id = askQuestion("Enter the ID of the author (or type 'back' to go back): ");
+    if (strtolower($id) === "back") {
+      return;
+    }
+
+    $authorService = new AuthorService;
+    $authorService->deleteAuthor($id);
+  }
 }

@@ -14,4 +14,9 @@ class AuthorService
     $authorDAO = new AuthorDAO();
     $authorDAO->setAuthor($author);
   }
+  public function deleteAuthor($id)
+  {
+    $authorDAO = new AuthorDAO();
+    $authorDAO->deleteAuthor($id);
+  }
 }
