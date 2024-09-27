@@ -16,9 +16,8 @@ class Reader
     $this->firstName = $firstName;
     $this->address = $address;
   }
-
-  //* Getters and Setters for ID, cardNumber, lastName, firstName, And address
-  public function getId() { return $this->id; }
+  //* Getters and Setters for cardNumber, lastName, firstName, And address
+  public function getId(){ return $this->id; }
 
   public function getCardNumber() { return $this->cardNumber; }
   public function setCardNumber($cardNumber) { $this->cardNumber = $cardNumber; }

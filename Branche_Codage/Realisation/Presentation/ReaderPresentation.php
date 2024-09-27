@@ -53,4 +53,16 @@ class ReaderPresentation
     $readerService->setReader($new_reader);
     echo "Reader added successfully\n\n";
   }
+  
+  public function deleteReader()
+  {
+    echo "\nDeleting a Reader\n";
+    $id = askQuestion("Enter the ID of the reader (or type 'back' to go back): ");
+    if (strtolower($id) === "back") {
+      return;
+    }
+
+    $readerService = new ReaderService;
+    $readerService->deleteReader($id);
+  }
 }
