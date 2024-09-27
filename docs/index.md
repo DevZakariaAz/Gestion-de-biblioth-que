@@ -104,4 +104,4 @@ Ce projet nous a également permis d'approfondir notre compréhension des concep
 
 Globalement, ce projet représente une étape significative dans notre parcours d'apprentissage et illustre notre engagement à créer des solutions logicielles robustes et adaptées aux besoins des utilisateurs.
 
-### Par : Zakaria Azizi , Hamza Jarane , Bougtoub Samia , Suirita Fahd , AMAZU Ayoub
+#### Par : Zakaria Azizi , Hamza Jarane , Bougtoub Samia , Suirita Fahd , AMAZU Ayoub
