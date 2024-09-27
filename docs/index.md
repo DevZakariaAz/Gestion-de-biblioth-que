@@ -103,3 +103,4 @@ En conclusion, notre projet de gestion de bibliothèque a permis de développer 
 Ce projet nous a également permis d'approfondir notre compréhension des concepts fondamentaux de la POO et d'améliorer nos compétences en développement logiciel. À l'avenir, nous envisageons d'étendre les fonctionnalités de l'application pour inclure la gestion des emprunts et des lecteurs, ainsi que d'autres améliorations visant à enrichir l'expérience utilisateur.
 
 Globalement, ce projet représente une étape significative dans notre parcours d'apprentissage et illustre notre engagement à créer des solutions logicielles robustes et adaptées aux besoins des utilisateurs.
+# Par : Zakaria Azizi , Hamza Jarane , Bougtoub Samia , Suirita Fahd , AMAZU Ayoub
