@@ -8,7 +8,46 @@ class BookDAO
     $dataBase = new DataBase();
     return $dataBase->Books;
   }
-  
+  public function viewAvailableBooksWeb()
+  {
+    $dataBase = new DataBase();
+    $books = $dataBase->Books;
+    $borrowings = $dataBase->Borrowings;
+
+    $availableBooks = [];
+
+    foreach ($books as $book) {
+      $isBorrowed = false;
+      foreach ($borrowings as $borrowing) {
+        if ($book->getId() == $borrowing->getBook()) {
+          if (empty($borrowing->getActual_return_date())) {
+            $isBorrowed = true;
+            break;
+          }
+        }
+      }
+
+      if (!$isBorrowed) {
+        $availableBooks[] = $book;
+      }
+
+      return $availableBooks;
+    }
+  }
+
+  public function searchBookByTitle($title)
+  {
+    $dataBase = new Database();
+    $books = $dataBase->Books;
+
+    foreach ($books as $index => $book) {
+      if ($book->getTitle() == $title) {
+        return $books[$index];
+        break;
+      }
+    }
+  }
+
   public function setBook($book)
   {
     $dataBase = new DataBase();

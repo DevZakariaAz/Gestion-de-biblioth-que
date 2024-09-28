@@ -14,6 +14,7 @@ class ReaderPresentation
     if (!empty($readers)) {
       foreach ($readers as $reader) {
         echo "---------------------------------\n";
+        // echo"ID :";
         echo "card Number: " . $reader->getCardNumber() . "\n";
         echo "Last Name: " . $reader->getLastName() . "\n";
         echo "First Name: " . $reader->getFirstName() . "\n";

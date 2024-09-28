@@ -14,6 +14,7 @@ class AuthorPresentation
     if (!empty($authors)) {
       foreach ($authors as $author) {
         echo "---------------------------------\n";
+        echo "Id : ". $author->getid()."\n";
         echo "last Name : " . $author->getlastName() . "\n";
         echo "first Name: " . $author->getfirstName() . "\n";
         echo "Nationality: " . $author->getnationality() . "\n";

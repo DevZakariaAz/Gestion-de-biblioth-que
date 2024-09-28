@@ -14,6 +14,7 @@ class BookPresentation
     if (!empty($books)) {
       foreach ($books as $book) {
         echo "---------------------------------\n";
+        echo "Id : ". $book->getid()."\n";
         echo "ISBN: " . $book->getISBN() . "\n";
         echo "Title: " . $book->getTitle() . "\n";
         echo "Publish Date: " . $book->getPublish_date() . "\n";
