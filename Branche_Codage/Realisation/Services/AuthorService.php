@@ -19,4 +19,10 @@ class AuthorService
     $authorDAO = new AuthorDAO();
     $authorDAO->deleteAuthor($id);
   }
+  public function editAuthor($author)
+    {
+        $authorDAO = new AuthorDAO();
+        $authorDAO->editAuthor($author);
+    }
+
 }

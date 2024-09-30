@@ -41,5 +41,27 @@ class AuthorDAO
           $dataBase->saveData(); 
       }
   }
+  public function editAuthor($author)
+  {
+    $dataBase = new Database();
+    $authors = $dataBase->Authors;
+    $authorFound = false;
+
+    foreach ($authors as $index => $existingAuthor) {
+      if ($existingAuthor->getId() == $author->getId()) {
+        $authors[$index] = $author; // Replace with the edited author
+        $authorFound = true;
+        break;
+        }
+      }
+
+      if ($authorFound) {
+        $dataBase->Authors = array_values($authors); // Reindex the array
+        $dataBase->saveData(); // Save changes to the data source
+          echo "Author updated successfully.\n";
+      } else {
+          echo "No author found with ID: " . $author->getId() . "\n";
+      }
+  }
 
 }

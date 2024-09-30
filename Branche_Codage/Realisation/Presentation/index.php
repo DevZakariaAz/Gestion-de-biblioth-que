@@ -78,6 +78,7 @@ function author_management()
     echo "|------------------------------------|\n";
     echo "| [v] - View the Authors             |\n";
     echo "| [a] - Add a new Authors            |\n";
+    echo "| [e] - Edit a  Authors              |\n";
     echo "| [d] - Deleting a Authors           |\n";
     echo "| [back] - back to main menu         |\n";
     echo "+------------------------------------+\n";
@@ -96,6 +97,10 @@ function author_management()
 
       case 'd':
         $authorPresentation->deleteAuthor();
+        break;
+
+      case 'e':
+        $authorPresentation->editAuthor();
         break;
 
       case 'back':
