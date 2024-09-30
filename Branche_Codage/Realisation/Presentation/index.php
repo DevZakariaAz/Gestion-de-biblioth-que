@@ -22,6 +22,8 @@ function book_management()
     echo "| [v] - View the Books               |\n";
     echo "| [a] - Add a new Book               |\n";
     echo "| [d] - Delete a Book                |\n";
+    echo "| [e] - Edit a Book                  |\n";
+    echo "| [s] - Search about a Book          |\n";
     echo "| [b] - Borrowings a Book            |\n";
     echo "| [back] - back to main menu         |\n";
     echo "+------------------------------------+\n";
@@ -42,12 +44,20 @@ function book_management()
         $bookPresentation->deleteBook();
         break;
 
+      case 'e': 
+        $bookPresentation->editBook();
+        break;
+
       case 'b':
         borrowing_management();
         break;
 
       case 'back':
         $exitProgram = true;
+        break;
+
+      case 's':
+        $bookPresentation->searchBook();
         break;
 
       default:
