@@ -35,17 +35,33 @@ class BookDAO
     }
   }
 
-  public function searchBookByTitle($title)
+  public function getBookByISBN($ISBN)
+  {
+      $dataBase = new Database(); 
+      $books = $dataBase->Books;
+
+      foreach ($books as $book) {
+        if ($book->getISBN() == $ISBN) {
+          return $book;
+        }
+      }
+
+      return null;
+  }
+
+  public function updateBook($book)
   {
     $dataBase = new Database();
     $books = $dataBase->Books;
-
-    foreach ($books as $index => $book) {
-      if ($book->getTitle() == $title) {
-        return $books[$index];
-        break;
+      foreach ($books as $index => $existingBook) {
+        if ($existingBook->getISBN() == $book->getISBN()) {
+          $books[$index] = $book; // Update the book in the array
+          break;
+        }
       }
-    }
+
+    $dataBase->Books = $books; // Save the updated list back to the database
+    $dataBase->saveData(); // Save the changes
   }
 
   public function setBook($book)
