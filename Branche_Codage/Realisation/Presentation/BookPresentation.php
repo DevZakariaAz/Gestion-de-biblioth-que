@@ -66,5 +66,86 @@ class BookPresentation
     $bookService = new BookService;
     $bookService->deleteBook($id);
   }
-  
+
+  public function editBook()
+  {
+    echo "\nEditing a Book\n";
+    $ISBN = askQuestion("Enter the ISBN of the book to edit (or type 'back' to go back): ");
+    if (strtolower($ISBN) === "back") {
+        return;
+    }
+
+    $bookService = new BookService();
+    $book = $bookService->getBookByISBN($ISBN);
+
+    if (!$book) {
+        echo "No book found with ISBN: $ISBN\n\n";
+        return;
+    }
+
+    // Display current book details
+    echo "Current details of the book:\n";
+    echo "---------------------------------\n";
+    echo "Id: " . $book->getId() . "\n";
+    echo "ISBN: " . $book->getISBN() . "\n";
+    echo "Title: " . $book->getTitle() . "\n";
+    echo "Publish Date: " . $book->getPublish_date() . "\n";
+    echo "Author: " . $book->getAuthor() . "\n";
+    echo "---------------------------------\n";
+
+    // Prompt the user for new details
+    $newTitle = askQuestion("Enter the new title of the book (or press Enter to keep current title): ");
+    if (!empty($newTitle)) {
+        $book->setTitle($newTitle);
+    }
+
+    $newAuthor = askQuestion("Enter the new Author of the book (or press Enter to keep current Author): ");
+    if (!empty($newAuthor)) {
+        $book->setAuthor($newAuthor);
+    }
+
+    $newPublishDate = askQuestion("Enter the new Publish Date of the book (or press Enter to keep current Publish Date): ");
+    if (!empty($newPublishDate)) {
+        $book->setPublish_date($newPublishDate);
+    }
+
+    // Update the book in the service
+    $bookService->updateBook($book);
+    echo "Book updated successfully\n\n";
+  }
+  public function searchBook()
+  {
+    echo "\nSearching for a Book\n";
+    $searchQuery = askQuestion("Enter the title or ISBN of the book to search (or type 'back' to go back): ");
+    if (strtolower($searchQuery) === "back") {
+        return;
+    }
+
+    $bookService = new BookService();
+    $books = $bookService->getBooks(); // Get all books
+
+    $foundBooks = []; // To store matching books
+    foreach ($books as $book) {
+        if (stripos($book->getTitle(), $searchQuery) !== false || $book->getISBN() === $searchQuery) {
+            $foundBooks[] = $book; // Add matching book to results
+        }
+    }
+
+    if (!empty($foundBooks)) {
+        echo "---------------------------------\n";
+        foreach ($foundBooks as $book) {
+            echo "Id: " . $book->getId() . "\n";
+            echo "ISBN: " . $book->getISBN() . "\n";
+            echo "Title: " . $book->getTitle() . "\n";
+            echo "Publish Date: " . $book->getPublish_date() . "\n";
+            echo "Author: " . $book->getAuthor() . "\n";
+            echo "---------------------------------\n";
+        }
+    } else {
+        echo "No books found matching your search.\n";
+    }
+
+    echo "---------------------------------\n\n";
+  }
+
 }
